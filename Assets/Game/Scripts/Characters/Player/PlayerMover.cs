@@ -25,17 +25,7 @@ public class PlayerMover : MonoBehaviour
         _desiredTiltSpeed = _decreaseTiltSpeed;
     }
 
-    private void Update()
-    {
-        ChangeAngle();
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            GainAltitude();
-        }
-    }
-
-    public void ChangeAngle()
+    public void UpdateAngle()
     {
         _desiredTiltSpeed = Mathf.Clamp(_desiredTiltSpeed - _decreaseTiltSpeed * Time.deltaTime, _minTiltSpeed, _clickTiltSpeed);
         _desiredTilt = Mathf.Lerp(_desiredTilt, _minTilt, _desiredTiltSpeed * Time.deltaTime);
