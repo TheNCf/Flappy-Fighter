@@ -18,11 +18,22 @@ public class PlayerMover : MonoBehaviour
     private float _desiredTilt = 0.0f;
     private float _desiredTiltSpeed;
 
+    private Vector3 _startPosition;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
 
         _desiredTiltSpeed = _decreaseTiltSpeed;
+
+        _startPosition = transform.position;
+    }
+
+    public void Reset()
+    {
+        transform.position = _startPosition;
+        transform.localEulerAngles = Vector3.zero;
+        _rigidbody.velocity = Vector2.zero;
     }
 
     public void UpdateAngle()
