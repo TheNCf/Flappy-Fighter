@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class EnemyAttacker : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private RocketSpawner _rocketSpawner;
+    [Space(10)]
+    [SerializeField] private float _reloadTime = 1.5f;
+
+    private void Start()
     {
-        
+        StartCoroutine(AttackCoroutine());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator AttackCoroutine()
     {
-        
+        WaitForSeconds wait = new WaitForSeconds(_reloadTime);
+
+        while (enabled)
+        {
+            yield return wait;
+            _rocketSpawner.Spawn(transform.position);
+        }
     }
 }
