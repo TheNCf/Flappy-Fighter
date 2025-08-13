@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
 
     private void OnAttack()
     {
-
+        _playerAttacker.Attack();
     }
 
     private void OnCollision(IInteractable interactable)

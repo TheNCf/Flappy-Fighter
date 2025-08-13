@@ -1494,6 +1494,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14abd1149597ae44a1ad42737faa719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rocketSpawner: {fileID: 412395628}
+  _reloadTime: 1
 --- !u!1 &1645904894
 GameObject:
   m_ObjectHideFlags: 0
