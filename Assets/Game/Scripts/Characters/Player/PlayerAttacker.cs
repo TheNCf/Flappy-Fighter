@@ -15,7 +15,7 @@ public class PlayerAttacker : MonoBehaviour
             return;
 
         StartCoroutine(AttackCoroutine());
-        _rocketSpawner.Spawn(transform.position);
+        _rocketSpawner.Spawn(transform.position, transform.rotation);
     }
 
     private IEnumerator AttackCoroutine()

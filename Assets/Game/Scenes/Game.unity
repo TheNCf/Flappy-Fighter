@@ -1227,6 +1227,52 @@ Transform:
   - {fileID: 644954891}
   m_Father: {fileID: 1210051884}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1027570648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1027570650}
+  - component: {fileID: 1027570649}
+  m_Layer: 0
+  m_Name: Attack Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1027570649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027570648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e14abd1149597ae44a1ad42737faa719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rocketSpawner: {fileID: 412395628}
+  _reloadTime: 1
+--- !u!4 &1027570650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027570648}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.673, y: -0.182, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1210051884}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1044435933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1396,7 +1442,6 @@ GameObject:
   - component: {fileID: 1210051883}
   - component: {fileID: 1210051885}
   - component: {fileID: 1210051886}
-  - component: {fileID: 1210051887}
   m_Layer: 0
   m_Name: Player Character
   m_TagString: Untagged
@@ -1446,6 +1491,7 @@ Transform:
   m_Children:
   - {fileID: 903879624}
   - {fileID: 912541916}
+  - {fileID: 1027570650}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1210051885
@@ -1462,7 +1508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputRegisterer: {fileID: 73332026}
   _playerMover: {fileID: 1210051886}
-  _playerAttacker: {fileID: 1210051887}
+  _playerAttacker: {fileID: 1027570649}
   _playerCollisionHandler: {fileID: 644954893}
 --- !u!114 &1210051886
 MonoBehaviour:
@@ -1482,20 +1528,6 @@ MonoBehaviour:
   _clickTiltSpeed: 10
   _minTiltSpeed: 1.5
   _decreaseTiltSpeed: 0.5
---- !u!114 &1210051887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210051882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e14abd1149597ae44a1ad42737faa719, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rocketSpawner: {fileID: 412395628}
-  _reloadTime: 1
 --- !u!1 &1645904894
 GameObject:
   m_ObjectHideFlags: 0

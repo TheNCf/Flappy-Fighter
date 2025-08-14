@@ -8,6 +8,6 @@ public class HorizontalMover : MonoBehaviour
 
     public virtual void Move()
     {
-        transform.Translate(_speed * Time.deltaTime, 0.0f, 0.0f);
+        transform.Translate(transform.right * _speed * Time.deltaTime);
     }
 }

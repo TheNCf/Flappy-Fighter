@@ -20,7 +20,7 @@ public class EnemyAttacker : MonoBehaviour
         while (enabled)
         {
             yield return wait;
-            _rocketSpawner.Spawn(transform.position);
+            _rocketSpawner.Spawn(transform.position, Quaternion.identity);
         }
     }
 }
