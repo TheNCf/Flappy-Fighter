@@ -13,6 +13,11 @@ public class EnemyAttacker : MonoBehaviour
         StartCoroutine(AttackCoroutine());
     }
 
+    public void Initialize(RocketSpawner rocketSpawner)
+    {
+        _rocketSpawner = rocketSpawner;
+    }
+
     private IEnumerator AttackCoroutine()
     {
         WaitForSeconds wait = new WaitForSeconds(_reloadTime);
