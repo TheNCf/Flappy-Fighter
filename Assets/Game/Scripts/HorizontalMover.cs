@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class HorizontalMover : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField] protected float Speed;
 
     public virtual void Move()
     {
-        transform.Translate(transform.right * _speed * Time.deltaTime);
+        transform.Translate(transform.right * Speed * Time.deltaTime);
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ public class Enemy : MonoBehaviour, IPoolableObject
 {
     [SerializeField] private EnemyMover _mover;
     [SerializeField] private EnemyAttacker _attacker;
+
+    public event Action Eliminated;
 
     private void Update()
     {
@@ -20,5 +23,10 @@ public class Enemy : MonoBehaviour, IPoolableObject
     public void ResetObject()
     {
         
+    }
+
+    public void Eliminate()
+    {
+        Eliminated?.Invoke();
     }
 }
