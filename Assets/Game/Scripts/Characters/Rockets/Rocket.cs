@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Rocket : MonoBehaviour, IPoolableObject, IEliminateable
+public class Rocket : MonoBehaviour, IPoolableObject, IEliminatable
 {
     [SerializeField] private RocketMover _mover;
 
@@ -14,11 +14,8 @@ public class Rocket : MonoBehaviour, IPoolableObject, IEliminateable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out IEliminateable eliminateable))
-        {
+        if (collision.TryGetComponent(out IEliminatable eliminatable))
             Eliminate();
-            Debug.Log("ddf");
-        }
     }
 
     public void ResetObject()
