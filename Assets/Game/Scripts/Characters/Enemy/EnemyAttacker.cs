@@ -25,7 +25,8 @@ public class EnemyAttacker : MonoBehaviour
         while (enabled)
         {
             yield return wait;
-            _rocketSpawner.Spawn(transform.position, Quaternion.identity);
+            Rocket rocket = _rocketSpawner.Spawn(transform.position, Quaternion.identity);
+            rocket.Initialize(typeof(EnemyCollisionHandler));
         }
     }
 }

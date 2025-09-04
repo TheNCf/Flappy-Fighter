@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private InputRegisterer _inputRegisterer;
@@ -41,7 +42,7 @@ public class Player : MonoBehaviour
 
     private void OnAttack()
     {
-        _playerAttacker.Attack();
+        _playerAttacker.Attack(_playerCollisionHandler.Collider);
     }
 
     private void OnCollision(IInteractable interactable)

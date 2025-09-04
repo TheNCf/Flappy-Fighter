@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour, IPoolableObject
 {
     [SerializeField] private EnemyMover _mover;
     [SerializeField] private EnemyAttacker _attacker;
+    [SerializeField] private EnemyCollisionHandler _collisionHandler;
 
     public event Action Eliminated;
 

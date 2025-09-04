@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class RocketSpawner : SpawnerBase<Rocket>
 {
-    public void Spawn(Vector3 position, Quaternion rotation)
+    public Rocket Spawn(Vector3 position, Quaternion rotation)
     {
         Rocket rocket = ObjectPool.Get();
         rocket.transform.position = position;
         rocket.transform.rotation = rotation;
+
+        return rocket;
     }
 
     protected override Rocket Create()

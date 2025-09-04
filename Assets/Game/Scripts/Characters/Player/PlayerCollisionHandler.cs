@@ -8,6 +8,13 @@ public class PlayerCollisionHandler : MonoBehaviour
 {
     public Action<IInteractable> CollisionDetected;
 
+    public Collider2D Collider { get; private set; }
+
+    private void Awake()
+    {
+        Collider = GetComponent<Collider2D>();
+    }
+
     private void OnValidate()
     {
         GetComponent<Collider2D>().isTrigger = true;

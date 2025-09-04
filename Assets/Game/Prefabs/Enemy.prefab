@@ -78,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mover: {fileID: 828325812442518910}
   _attacker: {fileID: 6030380887071082898}
+  _collisionHandler: {fileID: 238350837443054881}
 --- !u!114 &828325812442518910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2461096968652035527}
   - component: {fileID: 7055013791297018865}
+  - component: {fileID: 238350837443054881}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -288,6 +290,18 @@ CapsuleCollider2D:
   m_Offset: {x: -0.020413287, y: -0.04082698}
   m_Size: {x: 1.507412, y: 0.6500749}
   m_Direction: 1
+--- !u!114 &238350837443054881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4450200495230446007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b9a3aabd108394cac5f62d04bf3e77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7542972734576974809
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,16 +9,17 @@ public class PlayerAttacker : MonoBehaviour
 
     private bool _canAttack = true;
 
-    public void Attack()
+    public void Attack(Collider2D playerCollider)
     {
         if (_canAttack == false)
             return;
 
-        StartCoroutine(AttackCoroutine());
-        _rocketSpawner.Spawn(transform.position, transform.rotation);
+        StartCoroutine(ReloadCoroutine());
+        Rocket rocket = _rocketSpawner.Spawn(transform.position, transform.rotation);
+        rocket.Initialize(typeof(PlayerCollisionHandler));
     }
 
-    private IEnumerator AttackCoroutine()
+    private IEnumerator ReloadCoroutine()
     {
         _canAttack = false;
         yield return new WaitForSeconds(_reloadTime);

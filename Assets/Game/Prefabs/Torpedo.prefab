@@ -96,7 +96,6 @@ GameObject:
   - component: {fileID: 2542415359702277489}
   - component: {fileID: 8120828807601973648}
   - component: {fileID: 2791521615120276781}
-  - component: {fileID: 7216632845772751643}
   m_Layer: 0
   m_Name: Torpedo
   m_TagString: Untagged
@@ -118,6 +117,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9194156825874806464}
+  - {fileID: 5831527545156644371}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2542415359702277489
@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mover: {fileID: 2791521615120276781}
+  _collisionHandler: {fileID: 3118995141040676460}
 --- !u!114 &2791521615120276781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,13 +174,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 4
---- !u!70 &7216632845772751643
+--- !u!1 &5463266035638087093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5831527545156644371}
+  - component: {fileID: 4043090326978498249}
+  - component: {fileID: 3118995141040676460}
+  m_Layer: 0
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5831527545156644371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5463266035638087093}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 295793884123592198}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &4043090326978498249
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4832836942991439072}
+  m_GameObject: {fileID: 5463266035638087093}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -208,3 +242,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0.016899468, y: 0.006337045}
   m_Size: {x: 0.74651486, y: 0.21841106}
   m_Direction: 1
+--- !u!114 &3118995141040676460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5463266035638087093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93614e32e623cd04baef771631b66a4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
