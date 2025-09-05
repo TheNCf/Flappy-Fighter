@@ -8,7 +8,7 @@ public class EnemyAttacker : MonoBehaviour
     [Space(10)]
     [SerializeField] private float _reloadTime = 1.5f;
 
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(AttackCoroutine());
     }

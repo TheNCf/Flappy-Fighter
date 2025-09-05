@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour, IPoolableObject
 
     private void OnCollision(IInteractable interactable)
     {
-        if (interactable is PlayerRocketCollisionHandler || interactable is PlayerCollisionHandler)
+        if (interactable is Terminator || interactable is PlayerRocketCollisionHandler || interactable is PlayerCollisionHandler)
             Eliminated?.Invoke(this);
     }
 }
