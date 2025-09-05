@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
 
     private void OnCollision(IInteractable interactable)
     {
-        if (interactable is Ground)
+        if (interactable is Ground || interactable is EnemyRocketCollisionHandler || interactable is EnemyCollisionHandler)
         {
             Time.timeScale = 0.0f;
         }

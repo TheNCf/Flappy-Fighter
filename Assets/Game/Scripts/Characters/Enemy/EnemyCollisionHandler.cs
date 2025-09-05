@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCollisionHandler : MonoBehaviour
+public class EnemyCollisionHandler : CollisionHandler, IInteractable
 {
     
 }

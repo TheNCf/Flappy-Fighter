@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mover: {fileID: 2366936812492885464}
-  _collisionHandler: {fileID: 2775225502182178462}
+  _collisionHandler: {fileID: 7556163698589253677}
 --- !u!114 &2366936812492885464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6726950105794770704}
   - component: {fileID: 3600114741845949824}
-  - component: {fileID: 2775225502182178462}
+  - component: {fileID: 7556163698589253677}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -242,7 +242,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.47258937, y: 0.016509196}
   m_Size: {x: 0.94635284, y: 0.3313753}
   m_Direction: 1
---- !u!114 &2775225502182178462
+--- !u!114 &7556163698589253677
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -251,6 +251,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8182028613499693593}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93614e32e623cd04baef771631b66a4e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a4750e278a95384c86eff67610bcd7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

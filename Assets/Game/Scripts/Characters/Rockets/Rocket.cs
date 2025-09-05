@@ -4,19 +4,17 @@ using UnityEngine;
 public class Rocket : MonoBehaviour, IPoolableObject
 {
     [SerializeField] private RocketMover _mover;
-    [SerializeField] private RocketCollisionHandler _collisionHandler;
-
-    private Type _ignoreCollisionWith;
+    [SerializeField] private CollisionHandler _collisionHandler;
 
     public event Action<Rocket> Eliminated;
 
     private void OnEnable()
     {
-        _collisionHandler.Collided += OnCollision;
+        _collisionHandler.CollisionDetected += OnCollision;
     }
     private void OnDisable()
     {
-        _collisionHandler.Collided -= OnCollision;
+        _collisionHandler.CollisionDetected -= OnCollision;
     }
 
     private void FixedUpdate()
@@ -29,16 +27,8 @@ public class Rocket : MonoBehaviour, IPoolableObject
 
     }
 
-    public void Initialize(Type ignoreCollisionWith)
+    public void OnCollision(IInteractable interactable)
     {
-        _ignoreCollisionWith = ignoreCollisionWith;
-    }
-
-    public void OnCollision(Collider2D collider)
-    {
-        if (collider.TryGetComponent(_ignoreCollisionWith, out _))
-            return;
-
         Eliminated?.Invoke(this);
     }
 }

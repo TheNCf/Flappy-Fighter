@@ -16,7 +16,6 @@ public class PlayerAttacker : MonoBehaviour
 
         StartCoroutine(ReloadCoroutine());
         Rocket rocket = _rocketSpawner.Spawn(transform.position, transform.rotation);
-        rocket.Initialize(typeof(PlayerCollisionHandler));
     }
 
     private IEnumerator ReloadCoroutine()

@@ -4,10 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
-public class PlayerCollisionHandler : MonoBehaviour
+public class PlayerCollisionHandler : CollisionHandler
 {
-    public Action<IInteractable> CollisionDetected;
-
     public Collider2D Collider { get; private set; }
 
     private void Awake()
@@ -18,11 +16,5 @@ public class PlayerCollisionHandler : MonoBehaviour
     private void OnValidate()
     {
         GetComponent<Collider2D>().isTrigger = true;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent(out IInteractable interactable))
-            CollisionDetected?.Invoke(interactable);
     }
 }
