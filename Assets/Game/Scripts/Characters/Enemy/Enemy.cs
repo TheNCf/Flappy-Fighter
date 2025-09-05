@@ -9,7 +9,17 @@ public class Enemy : MonoBehaviour, IPoolableObject
     [SerializeField] private EnemyAttacker _attacker;
     [SerializeField] private EnemyCollisionHandler _collisionHandler;
 
-    public event Action Eliminated;
+    public event Action<Enemy> Eliminated;
+
+    private void OnEnable()
+    {
+        _collisionHandler.CollisionDetected += OnCollision;
+    }
+
+    private void OnDisable()
+    {
+        _collisionHandler.CollisionDetected -= OnCollision;
+    }
 
     private void Update()
     {
@@ -26,8 +36,9 @@ public class Enemy : MonoBehaviour, IPoolableObject
         
     }
 
-    public void Eliminate()
+    private void OnCollision(IInteractable interactable)
     {
-        Eliminated?.Invoke();
+        if (interactable is PlayerRocketCollisionHandler || interactable is PlayerCollisionHandler)
+            Eliminated?.Invoke(this);
     }
 }

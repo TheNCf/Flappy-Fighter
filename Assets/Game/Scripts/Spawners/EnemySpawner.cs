@@ -57,16 +57,24 @@ public class EnemySpawner : SpawnerBase<Enemy>
 
     protected override void OnClear(Enemy obj)
     {
+        obj.Eliminated -= OnEliminated;
         Destroy(obj.gameObject);
     }
 
     protected override void OnGet(Enemy obj)
     {
+        obj.Eliminated += OnEliminated;
         obj.gameObject.SetActive(true);
     }
 
     protected override void OnRelease(Enemy obj)
     {
+        obj.Eliminated -= OnEliminated;
         obj.gameObject.SetActive(false);
+    }
+
+    private void OnEliminated(Enemy enemy)
+    {
+        ObjectPool.Release(enemy);
     }
 }

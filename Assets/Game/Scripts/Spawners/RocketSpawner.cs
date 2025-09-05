@@ -22,6 +22,7 @@ public class RocketSpawner : SpawnerBase<Rocket>
 
     protected override void OnClear(Rocket obj)
     {
+        obj.Eliminated -= OnEliminated;
         Destroy(obj.gameObject);
     }
 
