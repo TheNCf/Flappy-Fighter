@@ -9,6 +9,7 @@ public class Game : MonoBehaviour
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private RocketSpawner _playerRocketSpawner;
     [SerializeField] private RocketSpawner _enemyRocketSpawner;
+    [SerializeField] private ScoreCounter _scoreCounter;
     [SerializeField] private GameStartScreen _gameStartScreen;
     [SerializeField] private GameEndScreen _gameEndScreen;
 
@@ -19,16 +20,16 @@ public class Game : MonoBehaviour
         _player.GameOver += OnGameOver;
     }
 
-    private void Start()
-    {
-        _player.IsActive = false;
-    }
-
     private void OnDisable()
     {
         _gameStartScreen.PlayButtonClicked -= OnPlayButtonPressed;
         _gameEndScreen.RestartButtonClicked -= OnRestartButtonPressed;
         _player.GameOver -= OnGameOver;
+    }
+
+    private void Start()
+    {
+        _player.IsActive = false;
     }
 
     private void OnRestartButtonPressed()
@@ -38,6 +39,7 @@ public class Game : MonoBehaviour
         _enemySpawner.ReleaseAll();
         _playerRocketSpawner.ReleaseAll();
         _enemyRocketSpawner.ReleaseAll();
+        _scoreCounter.Reset();
         _player.IsActive = false;
         StartGame();
     }
@@ -47,7 +49,6 @@ public class Game : MonoBehaviour
         _gameStartScreen.Close();
         _player.IsActive = true;
         _enemySpawner.enabled = true;
-        StartGame();
     }
 
     private void OnGameOver()

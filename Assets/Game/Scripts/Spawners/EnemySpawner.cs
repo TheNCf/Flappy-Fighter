@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawner : SpawnerBase<Enemy>
 {
     [SerializeField] private RocketSpawner _enemyRocketSpawner;
+    [SerializeField] private ScoreCounter _scoreCounter;
     [SerializeField, Min(0.001f)] private float _maxDelay = 2.0f;
     [SerializeField, Min(0.001f)] private float _minDelay = 1.0f;
     [SerializeField] private float _maxHeight = 1.0f;
@@ -83,5 +84,6 @@ public class EnemySpawner : SpawnerBase<Enemy>
     private void OnEliminated(Enemy enemy)
     {
         ObjectPool.Release(enemy);
+        _scoreCounter.Add();
     }
 }
