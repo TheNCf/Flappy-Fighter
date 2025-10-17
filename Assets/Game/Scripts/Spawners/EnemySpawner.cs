@@ -19,9 +19,14 @@ public class EnemySpawner : SpawnerBase<Enemy>
             _minDelay = _maxDelay;
     }
 
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(SpawnCoroutine());
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
 
     private void OnDrawGizmosSelected()

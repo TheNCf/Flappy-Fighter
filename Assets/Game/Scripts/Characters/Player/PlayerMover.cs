@@ -29,6 +29,18 @@ public class PlayerMover : MonoBehaviour
         _startPosition = transform.position;
     }
 
+    private void OnEnable()
+    {
+        _rigidbody.isKinematic = false;
+    }
+
+    private void OnDisable()
+    {
+        _rigidbody.isKinematic = true;
+        _rigidbody.velocity = Vector3.zero;
+        transform.rotation = Quaternion.identity;
+    }
+
     public void Reset()
     {
         transform.position = _startPosition;
@@ -45,6 +57,9 @@ public class PlayerMover : MonoBehaviour
 
     public void GainAltitude()
     {
+        if (_rigidbody.isKinematic == true)
+            return;
+
         _rigidbody.velocity = new Vector2(0.0f, _altitudeGainAmount);
         _decreaseTiltSpeed = _clickTiltSpeed;
         _desiredTilt = _maxTilt;

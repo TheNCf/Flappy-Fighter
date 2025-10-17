@@ -12,7 +12,23 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerAttacker _playerAttacker;
     [SerializeField] private PlayerCollisionHandler _playerCollisionHandler;
 
+    private bool _isActive = false;
+
     public event Action GameOver;
+
+    public bool IsActive 
+    { 
+        get => _isActive; 
+        
+        set 
+        { 
+            _isActive = value; 
+            _playerMover.enabled = value;
+
+            if (_isActive == false)
+                _playerMover.Reset();
+        } 
+    }
 
     private void OnEnable()
     {
@@ -23,7 +39,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        _playerMover.UpdateAngle();
+        if (IsActive)
+            _playerMover.UpdateAngle();
     }
 
     private void OnDisable()
@@ -35,11 +52,6 @@ public class Player : MonoBehaviour
 
     private void OnJump()
     {
-        if (Time.timeScale == 0.0f)
-        {
-            Time.timeScale = 1.0f;
-            _playerMover.Reset();
-        }
         _playerMover.GainAltitude();
     }
 

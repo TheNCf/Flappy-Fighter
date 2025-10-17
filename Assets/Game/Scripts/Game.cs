@@ -19,6 +19,11 @@ public class Game : MonoBehaviour
         _player.GameOver += OnGameOver;
     }
 
+    private void Start()
+    {
+        _player.IsActive = false;
+    }
+
     private void OnDisable()
     {
         _gameStartScreen.PlayButtonClicked -= OnPlayButtonPressed;
@@ -33,18 +38,22 @@ public class Game : MonoBehaviour
         _enemySpawner.ReleaseAll();
         _playerRocketSpawner.ReleaseAll();
         _enemyRocketSpawner.ReleaseAll();
+        _player.IsActive = false;
         StartGame();
     }
 
     private void OnPlayButtonPressed()
     {
         _gameStartScreen.Close();
+        _player.IsActive = true;
+        _enemySpawner.enabled = true;
         StartGame();
     }
 
     private void OnGameOver()
     {
         Time.timeScale = 0.0f;
+        _enemySpawner.enabled = false;
         _gameEndScreen.Open();
     }
 
