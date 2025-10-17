@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerMover _playerMover;
     [SerializeField] private PlayerAttacker _playerAttacker;
     [SerializeField] private PlayerCollisionHandler _playerCollisionHandler;
+
+    public event Action GameOver;
 
     private void OnEnable()
     {
@@ -49,7 +52,7 @@ public class Player : MonoBehaviour
     {
         if (interactable is Terminator || interactable is EnemyRocketCollisionHandler || interactable is EnemyCollisionHandler)
         {
-            Time.timeScale = 0.0f;
+            GameOver?.Invoke();
         }
     }
 }

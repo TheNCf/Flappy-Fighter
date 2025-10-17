@@ -30,12 +30,14 @@ public class RocketSpawner : SpawnerBase<Rocket>
     {
         obj.Eliminated += OnEliminated;
         obj.gameObject.SetActive(true);
+        ActiveObjects.Add(obj);
     }
 
     protected override void OnRelease(Rocket obj)
     {
         obj.Eliminated -= OnEliminated;
         obj.gameObject.SetActive(false);
+        ActiveObjects.Remove(obj);
     }
 
     private void OnEliminated(Rocket rocket)
